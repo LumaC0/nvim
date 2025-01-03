@@ -175,6 +175,9 @@ return {
       local servers = {
         -- clangd = {},
         -- gopls = {},
+        tsserver = {
+          filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
+        },
         ruff = {
           settings = {
             lineLength = 88,

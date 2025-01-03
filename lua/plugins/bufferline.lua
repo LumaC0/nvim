@@ -61,6 +61,16 @@ return {
       vim.keymap.set('n', '<leader>bl', ':BufferLineCloseLeft<CR>', { noremap = false, silent = true }),
       vim.keymap.set('n', '<leader>br', ':BufferLineCloseRight<CR>', { noremap = false, silent = true }),
       vim.keymap.set('n', '<leader>bp', ':BufferLinePickClose<CR>', { noremap = false, silent = true }),
+
+      vim.keymap.set('n', '<leader>1', ':BufferLineGoToBuffer 1<CR>', { noremap = false, silent = true }),
+      vim.keymap.set('n', '<leader>2', ':BufferLineGoToBuffer 2<CR>', { noremap = false, silent = true }),
+      vim.keymap.set('n', '<leader>3', ':BufferLineGoToBuffer 3<CR>', { noremap = false, silent = true }),
+      vim.keymap.set('n', '<leader>4', ':BufferLineGoToBuffer 4<CR>', { noremap = false, silent = true }),
+      vim.keymap.set('n', '<leader>5', ':BufferLineGoToBuffer 5<CR>', { noremap = false, silent = true }),
+      vim.keymap.set('n', '<leader>6', ':BufferLineGoToBuffer 6<CR>', { noremap = false, silent = true }),
+      vim.keymap.set('n', '<leader>7', ':BufferLineGoToBuffer 7<CR>', { noremap = false, silent = true }),
+      vim.keymap.set('n', '<leader>8', ':BufferLineGoToBuffer 8<CR>', { noremap = false, silent = true }),
+      vim.keymap.set('n', '<leader>9', ':BufferLineGoToBuffer 9<CR>', { noremap = false, silent = true }),
     }
   end,
 }
