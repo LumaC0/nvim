@@ -260,17 +260,6 @@ return {
           end,
         },
       }
-      require('conform').setup {
-        formatters_by_ft = {
-          typescript = { 'prettierd', 'prettier', stop_after_first = true },
-          typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-        },
-        format_on_save = {
-          lsp_format = 'fallback',
-          timeout_ms = 5000,
-        },
-        notify_no_formatters = true,
-      }
       --}}}
     end,
   },
