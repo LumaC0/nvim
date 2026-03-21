@@ -213,7 +213,11 @@ return {
             ['<c-x>'] = 'clear_filter',
             ['[g'] = 'prev_git_modified',
             [']g'] = 'next_git_modified',
-            ['o'] = { 'show_help', nowait = false, config = { title = 'Order by', prefix_key = 'o' } },
+            ['o'] = {
+              'show_help',
+              nowait = false,
+              config = { title = 'Order by', prefix_key = 'o' },
+            },
             ['oc'] = { 'order_by_created', nowait = false },
             ['od'] = { 'order_by_diagnostics', nowait = false },
             ['og'] = { 'order_by_git_status', nowait = false },
@@ -222,6 +226,7 @@ return {
             ['os'] = { 'order_by_size', nowait = false },
             ['ot'] = { 'order_by_type', nowait = false },
             -- ['<key>'] = function(state) ... end,
+            ['oa'] = 'avante_add_files',
           },
           fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
             ['<down>'] = 'move_cursor_down',
@@ -232,8 +237,30 @@ return {
           },
         },
 
-        commands = {}, -- Add a custom command or override a global one using the same function name
-      },
+        commands = {
+          avante_add_files = function(state)
+            local node = state.tree:get_node()
+            local filepath = node:get_id()
+            local relative_path = require('avante.utils').relative_path(filepath)
+
+            local sidebar = require('avante').get()
+
+            local open = sidebar:is_open()
+            -- ensure avante sidebar is open
+            if not open then
+              require('avante.api').ask()
+              sidebar = require('avante').get()
+            end
+
+            sidebar.file_selector:add_selected_file(relative_path)
+
+            -- remove neo tree buffer
+            if not open then
+              sidebar.file_selector:remove_selected_file 'neo-tree filesystem [1]'
+            end
+          end,
+        },
+      }, -- Add a custom command or override a global one using the same function name
       -- A list of functions, each representing a global custom command
       -- that will be available in all sources (if not overridden in `opts[source_name].commands`)
       -- see `:h neo-tree-custom-commands-global`
@@ -254,7 +281,11 @@ return {
             ['gc'] = 'git_commit',
             ['gp'] = 'git_push',
             ['gg'] = 'git_commit_and_push',
-            ['o'] = { 'show_help', nowait = false, config = { title = 'Order by', prefix_key = 'o' } },
+            ['o'] = {
+              'show_help',
+              nowait = false,
+              config = { title = 'Order by', prefix_key = 'o' },
+            },
             ['oc'] = { 'order_by_created', nowait = false },
             ['od'] = { 'order_by_diagnostics', nowait = false },
             ['om'] = { 'order_by_modified', nowait = false },

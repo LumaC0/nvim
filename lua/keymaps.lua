@@ -9,7 +9,12 @@ vim.keymap.set('i', 'jk', '<Esc>l')
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set(
+  'n',
+  '<leader>q',
+  vim.diagnostic.setloclist,
+  { desc = 'Open diagnostic [Q]uickfix list' }
+)
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -61,6 +66,9 @@ vim.api.nvim_set_keymap('i', '<C-v>', '<C-r>+', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<Leader>y', '"*y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<Leader>y', '"*y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>p', '"*p', { noremap = true, silent = true })
+
+-- preserve yanked content when pasting over selection
+vim.keymap.set('x', 'p', '"_dP')
 
 -- set terminal keymaps
 function _G.set_terminal_keymaps()

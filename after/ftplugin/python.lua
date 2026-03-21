@@ -29,3 +29,8 @@ vim.opt_local.formatoptions = vim.opt_local.formatoptions
   + 'n' -- Recognize numbered lists
   + 'j' -- Remove comment leader when joining lines
   - '2' -- not really sure what this one does
+
+vim.opt.breakindent = true
+vim.opt.linebreak = true
+vim.opt.diffopt:append 'linematch:60'
+vim.opt.wrap = false

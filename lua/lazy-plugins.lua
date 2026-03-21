@@ -55,11 +55,21 @@ require('lazy').setup({
   -- [[ alpha is a fast and fully programmable greeter for neovim ]]
   require 'plugins/alpha',
 
-  require 'plugins/copilot',
+  -- require 'plugins/copilot',
 
   require 'plugins/vimwiki',
 
   require 'plugins/smart-splits',
+
+  require 'plugins/magenta',
+
+  -- require 'plugins/avante',
+
+  require 'plugins/dev-container',
+
+  require 'plugins/ts-context-commentstring',
+
+  require 'plugins/inc-rename',
 
   -- require 'plugins/auto-save',
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
@@ -71,22 +81,33 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
+  require 'plugins/debug',
 
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
+  require 'plugins/indent_line',
+
+  require 'plugins/autopairs',
+
+  -- require 'plugins/codecompanion',
+
+  require 'plugins/claudecode',
+
+  -- require 'plugins/mcphub',
+
+  require 'plugins/git-conflict',
+
+  -- NOTE: The import below can automatically add your own plugins,
+  -- configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   -- { import = 'custom.plugins' },
 }, {
+  dev = {
+    path = '~/dev/LumaC0/nvim',
+    -- fallback = true,
+  },
   ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
       config = '🛠',
